@@ -1,18 +1,22 @@
 ﻿<Properties StartupConfiguration="{EBEC75EB-5B58-4D4E-AB25-6DA8D32C5A38}|Default">
-  <MonoDevelop.Ide.ItemProperties.console-app FirstBuild="True" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="console-app/Program.cs">
+  <MonoDevelop.Ide.ItemProperties.console-app PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="console-app/EmptyCSharpFile.cs">
     <Files>
-      <File FileName="console-app/Program.cs" Line="17" Column="1" />
+      <File FileName="console-app/Program.cs" Line="15" Column="61" />
+      <File FileName="console-app/EmptyCSharpFile.cs" Line="2" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="console-app" expanded="True">
             <Node name="console-app" expanded="True">
-              <Node name="Program.cs" selected="True" />
+              <Node name="EmptyCSharpFile.cs" selected="True" />
             </Node>
           </Node>
         </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
