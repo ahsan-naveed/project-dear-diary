@@ -1,0 +1,11 @@
+/Users/ahsannaveed/Documents/tutorial-projects/console-app/console-app/bin/Debug/netcoreapp2.1/console-app.deps.json
+/Users/ahsannaveed/Documents/tutorial-projects/console-app/console-app/bin/Debug/netcoreapp2.1/console-app.runtimeconfig.json
+/Users/ahsannaveed/Documents/tutorial-projects/console-app/console-app/bin/Debug/netcoreapp2.1/console-app.runtimeconfig.dev.json
+/Users/ahsannaveed/Documents/tutorial-projects/console-app/console-app/bin/Debug/netcoreapp2.1/console-app.dll
+/Users/ahsannaveed/Documents/tutorial-projects/console-app/console-app/bin/Debug/netcoreapp2.1/console-app.pdb
+/Users/ahsannaveed/Documents/tutorial-projects/console-app/console-app/obj/Debug/netcoreapp2.1/console-app.csprojAssemblyReference.cache
+/Users/ahsannaveed/Documents/tutorial-projects/console-app/console-app/obj/Debug/netcoreapp2.1/console-app.csproj.CoreCompileInputs.cache
+/Users/ahsannaveed/Documents/tutorial-projects/console-app/console-app/obj/Debug/netcoreapp2.1/console-app.AssemblyInfoInputs.cache
+/Users/ahsannaveed/Documents/tutorial-projects/console-app/console-app/obj/Debug/netcoreapp2.1/console-app.AssemblyInfo.cs
+/Users/ahsannaveed/Documents/tutorial-projects/console-app/console-app/obj/Debug/netcoreapp2.1/console-app.dll
+/Users/ahsannaveed/Documents/tutorial-projects/console-app/console-app/obj/Debug/netcoreapp2.1/console-app.pdb
