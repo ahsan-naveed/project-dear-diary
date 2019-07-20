@@ -1,0 +1,89 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/ahsannaveed/Documents/tutorial-projects/example-voting-app/worker/dotnet/Worker/Worker.csproj": {}
+  },
+  "projects": {
+    "/Users/ahsannaveed/Documents/tutorial-projects/example-voting-app/worker/dotnet/Worker/Worker.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/ahsannaveed/Documents/tutorial-projects/example-voting-app/worker/dotnet/Worker/Worker.csproj",
+        "projectName": "Worker",
+        "projectPath": "/Users/ahsannaveed/Documents/tutorial-projects/example-voting-app/worker/dotnet/Worker/Worker.csproj",
+        "packagesPath": "/Users/ahsannaveed/.nuget/packages/",
+        "outputPath": "/Users/ahsannaveed/Documents/tutorial-projects/example-voting-app/worker/dotnet/Worker/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/ahsannaveed/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.0.3, )"
+            },
+            "Microsoft.Extensions.Configuration.EnvironmentVariables": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Microsoft.Extensions.Logging": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Microsoft.Extensions.Logging.Console": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Microsoft.NETCore.App": {
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            },
+            "MySql.Data.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.12, )"
+            },
+            "NATS.Client": {
+              "target": "Package",
+              "version": "[0.8.1, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}

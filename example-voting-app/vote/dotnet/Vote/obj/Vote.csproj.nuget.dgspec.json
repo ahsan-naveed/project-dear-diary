@@ -1,0 +1,67 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/ahsannaveed/Documents/tutorial-projects/example-voting-app/vote/dotnet/Vote/Vote.csproj": {}
+  },
+  "projects": {
+    "/Users/ahsannaveed/Documents/tutorial-projects/example-voting-app/vote/dotnet/Vote/Vote.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/ahsannaveed/Documents/tutorial-projects/example-voting-app/vote/dotnet/Vote/Vote.csproj",
+        "projectName": "Vote",
+        "projectPath": "/Users/ahsannaveed/Documents/tutorial-projects/example-voting-app/vote/dotnet/Vote/Vote.csproj",
+        "packagesPath": "/Users/ahsannaveed/.nuget/packages/",
+        "outputPath": "/Users/ahsannaveed/Documents/tutorial-projects/example-voting-app/vote/dotnet/Vote/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/ahsannaveed/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.1, )",
+              "autoReferenced": true
+            },
+            "Microsoft.NETCore.App": {
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            },
+            "NATS.Client": {
+              "target": "Package",
+              "version": "[0.8.1, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}
