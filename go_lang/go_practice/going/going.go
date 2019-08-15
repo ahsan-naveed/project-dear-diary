@@ -4,6 +4,7 @@ package main
 
 import (
 	"fmt"
+	"net/http"
 	"strings"
 )
 
@@ -69,6 +70,24 @@ func wordCount(text string) {
 	fmt.Println(wordFreqs)
 }
 
+// return content type
+func contentType(url string) (string, error) {
+	resp, err := http.Get(url)
+
+	if err != nil {
+		return "", err
+	}
+
+	defer resp.Body.Close() // close the body
+
+	ctype := resp.Header.Get("Content-Type")
+	if ctype == "" { // Return error if Content-Type header not found
+		return "", fmt.Errorf("can't find content-type header")
+	}
+
+	return ctype, nil
+}
+
 func main() {
 	// // test fizzbuzz
 	// fizzbuzz()
@@ -80,13 +99,20 @@ func main() {
 	// nums := []int{1, 2, 34, 5, 1000}
 	// maximal(nums)
 
-	// test wordCount
-	text := `
-		Needles and pins
-		Needles and pins
-		Sew me a sail
-		To catch me the wind
-		`
-	wordCount(text)
+	// // test wordCount
+	// text := `
+	// 	Needles and pins
+	// 	Needles and pins
+	// 	Sew me a sail
+	// 	To catch me the wind
+	// 	`
+	// wordCount(text)
 
+	// test content type
+	ctype, err := contentType("https://linkedin.com")
+	if err != nil {
+		fmt.Printf("ERROR: %s\n", err)
+	} else {
+		fmt.Println(ctype)
+	}
 }
