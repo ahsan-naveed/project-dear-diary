@@ -4,8 +4,9 @@ package main
 
 import (
 	"fmt"
-	"log"
+	"io"
 	"net/http"
+	"os"
 	"strings"
 )
 
@@ -130,6 +131,27 @@ func NewSquare(x, y, length int) (*Square, error) {
 	return s, nil
 }
 
+// practicing interfaces
+
+// Capper implements io.Writer and turns everything to uppercase
+type Capper struct {
+	wtr io.Writer
+}
+
+func (c *Capper) Write(p []byte) (n int, err error) {
+	diff := byte('a' - 'A')
+
+	out := make([]byte, len(p))
+	for i, c := range p {
+		if c >= 'a' && c <= 'z' {
+			c -= diff
+		}
+		out[i] = c
+	}
+
+	return c.wtr.Write(out)
+}
+
 // uncomment respective test cases to test each function
 func main() {
 	// test fizzbuzz
@@ -160,12 +182,16 @@ func main() {
 	// }
 
 	// test square struct
-	s, err := NewSquare(1, 1, 10)
-	if err != nil {
-		log.Fatalf("ERROR: can't create square")
-	}
+	// s, err := NewSquare(1, 1, 10)
+	// if err != nil {
+	// 	log.Fatalf("ERROR: can't create square")
+	// }
 
-	s.Move(2, 3)
-	fmt.Printf("%+v\n", s)
-	fmt.Println(s.Area())
+	// s.Move(2, 3)
+	// fmt.Printf("%+v\n", s)
+	// fmt.Println(s.Area())
+
+	// test Capper
+	c := &Capper{wtr: os.Stdout}
+	fmt.Fprintf(c, "hello There\n")
 }
