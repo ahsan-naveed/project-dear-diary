@@ -4,6 +4,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 	"strings"
 )
@@ -88,18 +89,60 @@ func contentType(url string) (string, error) {
 	return ctype, nil
 }
 
+// structs practice
+// Point is a 2d point
+type Point struct {
+	X int
+	Y int
+}
+
+type Square struct {
+	Center Point
+	Length int
+}
+
+// moves the point
+func (p *Point) Move(dx, dy int) {
+	p.X += dx
+	p.Y += dy
+}
+
+// moves the square
+func (s *Square) Move(dx, dy int) {
+	s.Center.Move(dx, dy)
+}
+
+// calculates area of a square
+func (s *Square) Area() int {
+	return s.Length * s.Length
+}
+
+func NewSquare(x, y, length int) (*Square, error) {
+	if length < 0 {
+		return nil, fmt.Errorf("length must be >= 0")
+	}
+
+	s := &Square{
+		Center: Point{x, y},
+		Length: length,
+	}
+
+	return s, nil
+}
+
+// uncomment respective test cases to test each function
 func main() {
-	// // test fizzbuzz
+	// test fizzbuzz
 	// fizzbuzz()
 
-	// // test evenEnded
+	// test evenEnded
 	// evenEnded()
 
-	// // test maximal
+	// test maximal
 	// nums := []int{1, 2, 34, 5, 1000}
 	// maximal(nums)
 
-	// // test wordCount
+	// test wordCount
 	// text := `
 	// 	Needles and pins
 	// 	Needles and pins
@@ -109,10 +152,20 @@ func main() {
 	// wordCount(text)
 
 	// test content type
-	ctype, err := contentType("https://linkedin.com")
+	// ctype, err := contentType("https://linkedin.com")
+	// if err != nil {
+	// 	fmt.Printf("ERROR: %s\n", err)
+	// } else {
+	// 	fmt.Println(ctype)
+	// }
+
+	// test square struct
+	s, err := NewSquare(1, 1, 10)
 	if err != nil {
-		fmt.Printf("ERROR: %s\n", err)
-	} else {
-		fmt.Println(ctype)
+		log.Fatalf("ERROR: can't create square")
 	}
+
+	s.Move(2, 3)
+	fmt.Printf("%+v\n", s)
+	fmt.Println(s.Area())
 }
