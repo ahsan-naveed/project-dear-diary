@@ -4,6 +4,7 @@ import {
   StyleSheet,
   Text,
   View,
+  VrButton
 } from 'react-360';
 
 
@@ -20,21 +21,22 @@ export default class Hello360 extends React.Component {
   };
 
   // Once the component mounts, run the increment method every second
-  componentDidMount() {
-    setInterval(this._incrementCount, 1000);
-  }
+  // componentDidMount() {
+  //   setInterval(this._incrementCount, 1000);
+  // }
 
   render() {
-    // Reference the count in our UI
     return (
       <View style={styles.panel}>
-        <View style={styles.greetingBox}>
+        <VrButton
+          onClick={this._incrementCount}
+          style={styles.greetingBox}>
           <Text style={styles.greeting}>
             {`Count: ${this.state.count}`}
           </Text>
-        </View>
+        </VrButton>
       </View>
-    )
+    );
   }
 };
 
