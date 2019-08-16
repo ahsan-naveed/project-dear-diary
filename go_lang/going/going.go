@@ -3,6 +3,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 	"io/ioutil"
@@ -185,6 +186,34 @@ func killServer(pidFile string) error {
 	return nil
 }
 
+// Github API Challenge
+// User is a github user information
+type User struct {
+	Name        string `json:"name"`
+	PublicRepos int    `json:"public_repos"`
+}
+
+func gitHubUser(login string) (*User, error) {
+	// HTTP call
+	url := fmt.Sprintf("https://api.github.com/users/%s", login)
+	resp, err := http.Get(url)
+
+	if err != nil {
+		return nil, err
+	}
+
+	defer resp.Body.Close()
+
+	// Decod JSON
+	u := &User{}
+	dec := json.NewDecoder(resp.Body)
+	if err := dec.Decode(u); err != nil {
+		return nil, err
+	}
+
+	return u, nil
+}
+
 // Goroutines
 
 // uncomment respective test cases to test each function
@@ -231,8 +260,11 @@ func main() {
 	// fmt.Fprintf(c, "hello There\n")
 
 	// test server kill
-	if err := killServer("server.pid"); err != nil {
-		fmt.Fprintf(os.Stderr, "error: %s\n", err)
-		os.Exit(1)
-	}
+	// if err := killServer("server.pid"); err != nil {
+	// 	fmt.Fprintf(os.Stderr, "error: %s\n", err)
+	// 	os.Exit(1)
+	// }
+
+	// test github user
+	fmt.Println(gitHubUser("ahsan-naveed"))
 }
