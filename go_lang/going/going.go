@@ -5,9 +5,14 @@ package main
 import (
 	"fmt"
 	"io"
+	"io/ioutil"
+	"log"
 	"net/http"
 	"os"
+	"strconv"
 	"strings"
+
+	"github.com/pkg/errors"
 )
 
 // fizz buzz challenge
@@ -152,6 +157,34 @@ func (c *Capper) Write(p []byte) (n int, err error) {
 	return c.wtr.Write(out)
 }
 
+// files in go
+func killServer(pidFile string) error {
+	/*
+		Note that in real life, this might be dangerous if the file is very big.
+		Have a look at io.limitreader if you want to make sure you don't read too
+		much into memory.
+	*/
+	data, err := ioutil.ReadFile(pidFile)
+	if err != nil {
+		return errors.Wrap(err, "can't open pid file (is server running?)")
+	}
+
+	if err := os.Remove(pidFile); err != nil {
+		// We can go on if we fail here
+		log.Printf("warning: can't remove pid file - %s", err)
+	}
+
+	strPID := strings.TrimSpace(string(data))
+	pid, err := strconv.Atoi(strPID)
+	if err != nil {
+		return errors.Wrap(err, "bad process ID")
+	}
+
+	// Simulate kill
+	fmt.Printf("Killing server with pid=%d\n", pid)
+	return nil
+}
+
 // uncomment respective test cases to test each function
 func main() {
 	// test fizzbuzz
@@ -192,6 +225,12 @@ func main() {
 	// fmt.Println(s.Area())
 
 	// test Capper
-	c := &Capper{wtr: os.Stdout}
-	fmt.Fprintf(c, "hello There\n")
+	// c := &Capper{wtr: os.Stdout}
+	// fmt.Fprintf(c, "hello There\n")
+
+	// test server kill
+	if err := killServer("server.pid"); err != nil {
+		fmt.Fprintf(os.Stderr, "error: %s\n", err)
+		os.Exit(1)
+	}
 }
