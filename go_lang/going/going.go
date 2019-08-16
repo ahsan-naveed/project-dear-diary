@@ -185,6 +185,8 @@ func killServer(pidFile string) error {
 	return nil
 }
 
+// Goroutines
+
 // uncomment respective test cases to test each function
 func main() {
 	// test fizzbuzz
