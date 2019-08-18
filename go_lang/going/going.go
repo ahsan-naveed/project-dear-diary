@@ -229,6 +229,8 @@ func returnType(url string, out chan string) {
 	out <- fmt.Sprintf("%s -> %s\n", url, ctype)
 }
 
+// practice select
+
 // uncomment respective test cases to test each function
 func main() {
 	// test fizzbuzz
