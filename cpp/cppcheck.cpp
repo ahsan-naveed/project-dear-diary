@@ -14,7 +14,7 @@ void too_many_cats() {
   Cat houseCats[] = {{"Meowmix",    "black", 9, 12},
                      {"Thundercat", "grey",  4, 16}};
   std::cout << houseCats[0].name << std::endl;
-  std::cout << houseCats[2].name << std::endl;
+  std::cout << houseCats[1].name << std::endl;
 }
 
 void write_file(const char *str) {
@@ -22,8 +22,10 @@ void write_file(const char *str) {
   strcpy(buff, str);
 
   FILE *file = fopen("out.txt", "w");
-  if (!file)
-    return;
+  if (!file){
+      delete[] buff;
+      return;
+  }
 
   for (char *c = buff; *c; ++c) {
     fputc((int) *c, file);
@@ -39,7 +41,7 @@ void vector_check() {
   std::vector<int>::iterator iter;
   for (iter = items.begin(); iter != items.end(); ++iter) {
     if (*iter == 2) {
-      items.erase(iter);
+      iter = items.erase(iter);
     }
   }
 }
