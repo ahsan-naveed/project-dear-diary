@@ -51,3 +51,9 @@ int main() {
   write_file(static_cast<const char *>("Hello World"));
   vector_check();
 }
+
+// errors
+// [cppcheck.cpp:22] Buffer is accessed out of bounds
+// [cppcheck.cpp:26] Memory leak: buff
+// [cppcheck.cpp:232] Resource leak: file
+
