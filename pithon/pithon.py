@@ -80,10 +80,10 @@ class Fraction:
         return Fraction.__add__(self, value)
 
     def __iadd__(self, value):
-        pass
+        return Fraction.__add__(self, value)
 
     def __repr__(self):
-        pass
+        return 'Fraction(' + str(self.num) + '/' + str(self.den) + ')'
 
 
 
@@ -91,4 +91,4 @@ if __name__ == "__main__":
     frac1 = Fraction(2, 2)
     frac2 = Fraction(1, 2)
     
-    print(frac1 + Fraction(1, 1))
+    print(frac1 + 1)
