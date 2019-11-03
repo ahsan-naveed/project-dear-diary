@@ -229,6 +229,12 @@ func returnType(url string, out chan string) {
 	out <- fmt.Sprintf("%s -> %s\n", url, ctype)
 }
 
+func f(n int) {
+	for i := 0; i < 10; i++ {
+		fmt.Println(n, ":", i)
+	}
+}
+
 // practice select
 
 // uncomment respective test cases to test each function
@@ -301,4 +307,9 @@ func main() {
 		out := <-ch
 		fmt.Println(out)
 	}
+
+	// go routines
+	go f(0)
+	var input string
+	fmt.Scanln(&input)
 }
