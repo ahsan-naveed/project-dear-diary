@@ -1,3 +1,5 @@
+import random
+
 def gcd(x, y):
    """This function implements the Euclidian algorithm
    to find G.C.D. of two numbers"""
@@ -136,10 +138,26 @@ class BinaryGate(LogicGate):
         self.pinB = None
 
     def getPinA(self):
-        return (int(input("Enter Pin A input for gate " + self.getLabel() + "-->")))
+        if self.pinA == None:
+            return (int(input("Enter Pin A input for gate " + self.getLabel() + "-->")))
+        else:
+            return self.pinA.getFrom().getOutput()
     
     def getPinB(self):
-        return (int(input("Enter Pin B input for gate " + self.getLabel() + "-->")))
+        if self.pinB == None:
+            return (int(input("Enter Pin B input for gate " + self.getLabel() + "-->")))
+        else:
+            return self.pinB.getFrom().getOutput()
+    
+    def setNextPin(self, source):
+        if self.pinA == None:
+            self.pinA = source
+        else:
+            if self.pinB == None:
+                self.pinB = source
+            else:
+                print("Cannot Connect: NO EMPTY PINS on this gate")
+                
 
 """
 UnaryGate Class Extends LogicGate
@@ -151,7 +169,16 @@ class UnaryGate(LogicGate):
         self.pin = None
 
     def getPin(self):
-        return (int(input("Enter Pin input for gate" + self.getLabel() + "-->")))
+        if self.pin == None:
+            return int(input("Enter Pin input for gate " + self.getLabel() + "-->"))
+        else:
+            return self.pin.getFrom().getOutput()
+
+    def setNextPin(self, source):
+        if self.pin == None:
+            self.pin = source
+        else:
+            print("Cannot Connect: NO EMPTY PINS on this gate")
 
 """
 AndGate class Extends BinaryGate
@@ -185,6 +212,9 @@ class OrGate(BinaryGate):
         else:
             return 0
 
+"""
+NotGate class Extends UnaryGate
+"""
 class NotGate(UnaryGate):
     def __init__(self, n):
         super(NotGate, self).__init__(n)
@@ -194,7 +224,109 @@ class NotGate(UnaryGate):
             return 0
         else:
             return 1
+
+"""
+NandGate class Extends AndGate
+"""
+class NandGate(AndGate):
+
+    def performGateLogic(self):
+        if super().performGateLogic() == 1:
+            return 0
+        else:
+            return 1
+
+"""
+NandGate class Extends AndGate
+"""
+class NorGate(OrGate):
+
+    def performGateLogic(self):
+        if super().performGateLogic() == 1:
+            return 0
+        else:
+            return 1
+
+"""
+XorGate class
+"""
+class XorGate(BinaryGate):
+    # (x or y) and (not x or not y) 
+
+    def performGateLogic(self):
+        a = self.getPinA()
+        b = self.getPinB()
+
+        if a == b:
+            return 0
+        else:
+            return 1
+
+"""
+Connector class
+"""
+class Connector:
+    def __init__(self, fgate, tgate):
+        self.togate = tgate
+        self.fromgate = fgate
+
+        tgate.setNextPin(self)
     
+    def getFrom(self):
+        return self.fromgate
+
+    def getTo(self):
+        return self.togate
+
+#######################################################################
+#######################################################################
+#######################################################################
+
+class MSDie:
+    """
+        Multi-sided die
+
+        Instance Variables:
+            current_value
+            num_sides
+
+    """
+
+    def __init__(self, num_sides):
+        self.num_sides = num_sides
+        self.current_value = self.roll()
+
+    def __str__(self):
+        return str(self.current_value)
+    
+    def __repr__(self):
+        return "MSDie({}) : {}".format(self.num_sides, self.current_value)
+    
+    def roll(self):
+        self.current_value = random.randrange(1, self.num_sides + 1)
+        return self.current_value
+
+def main():
+    # NOT (( A and B) or (C and D)) 
+    # g1 = AndGate("G1")
+    # g2 = AndGate("G2")
+    # g3 = OrGate("G3")
+    # g4 = NotGate("G4")
+
+    # con1 = Connector(g1, g3)
+    # con2 = Connector(g2, g3)
+    # con3 = Connector(g3, g4)
+
+    # print(g4.getOutput())
+
+    my_die = MSDie(6)
+    for i in range(5):
+        print(my_die)
+        my_die.roll()
+    
+    d_list = [MSDie(6), MSDie(20)]
+    print(d_list)
+
+
 if __name__ == "__main__":
-    g1 = AndGate("G1")
-    print(g1.getOutput())
+    main()
