@@ -72,5 +72,6 @@ type FD interface {
 // https://www.golang-book.com/books/intro/10
 func Initialize(EpochNonce uint64, ChCapacity uint8) (fd FD, notifyCh <-chan FailureDetected, err error) {
 	// TODO
+	
 	return nil, nil, errors.New("unimplemented")
 }
