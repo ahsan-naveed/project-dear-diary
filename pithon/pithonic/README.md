@@ -44,7 +44,7 @@ dp:    disposition (valid values: MALICIOUS (1), CLEAN (2), UNKNOWN (3))
     * Whether the file is new
       * if so insert a new entry with `count == 1` and disposition (`dp`) == UNKNOWN
 3. We know the cloud server is malfunctioning, what types of patterns or anomalies did you observe?
-    * If possible, what types of problem hypotheses can you form from your observations? [hypothesis.py](/hypothesis.py)
+    * If possible, what types of problem hypotheses can you form from your observations? checkout hypothesis.py
 
 # Additional Info
 
