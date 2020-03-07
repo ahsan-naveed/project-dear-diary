@@ -1,0 +1,1 @@
+{"rustc":5105358705442676925,"features":"[]","target":11355337704233586972,"profile":4848322410005319020,"path":1036222786711178230,"deps":[["structopt v0.2.18","structopt",4384417272936101527]],"local":[{"MtimeBased":[[1583296064,77541908],".fingerprint/grrs-226995d43886280b/dep-bin-grrs-226995d43886280b"]}],"rustflags":[],"edition":"Edition2018"}
