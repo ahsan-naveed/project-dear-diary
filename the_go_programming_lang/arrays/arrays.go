@@ -81,7 +81,7 @@ func areSameShas(a, b *[32]byte) bool {
 
 // Exercise 4.2: toSHA256 returns sha256
 func toSHA256(in []byte, opt string) string {
-	sha := fmt.Sprintf("sha256: %x\n", sha256.Sum256(in))
+	var sha string
 	switch opt {
 	case "sha512":
 		sha = fmt.Sprintf("sha512: %x\n", sha512.Sum512(in))
@@ -90,6 +90,7 @@ func toSHA256(in []byte, opt string) string {
 		sha = fmt.Sprintf("sha384: %x\n", sha512.Sum384(in))
 		break
 	default:
+		sha = fmt.Sprintf("sha256: %x\n", sha256.Sum256(in))
 		break
 	}
 
