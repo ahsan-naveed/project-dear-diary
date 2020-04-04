@@ -50,6 +50,14 @@ func main() {
 		fmt.Printf("#%-5d %9.9s %.55s\n",
 			item.Number, item.User.Login, item.Title)
 	}
+
+	// testing poster
+	poster, err := getMoviePoster("Good Will Hunting")
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println(poster)
+	}
 }
 
 // github
@@ -97,4 +105,40 @@ func SearchIssues(terms []string) (*IssuesSearchResult, error) {
 	}
 	resp.Body.Close()
 	return &result, nil
+}
+
+// poster
+const (
+	APIURL     = "http://www.omdbapi.com/?"
+	FREEAPIKEY = "f9e326e7"
+)
+
+type omdb struct {
+	Response string
+	Poster   string
+	Error    string `json:"Error,omitempty"`
+}
+
+// getMoviePoster gets poster of the movie with title == searchTerm
+func getMoviePoster(searchTerm string) (string, error) {
+	var movie omdb
+	url_ := fmt.Sprintf("%st=%s&apikey=%s", APIURL, url.QueryEscape(searchTerm), FREEAPIKEY)
+	resp, err := http.Get(url_)
+	if err != nil {
+		return "", err
+	}
+	defer resp.Body.Close()
+	if resp.StatusCode == http.StatusOK {
+		if err := json.NewDecoder(resp.Body).Decode(&movie); err != nil {
+			return "", err
+		}
+
+	} else {
+		return "", fmt.Errorf("Server Error: %s", resp.Status)
+	}
+	if movie.Response == "False" {
+		return "", fmt.Errorf("%s", movie.Error)
+	} else {
+		return movie.Poster, nil
+	}
 }
