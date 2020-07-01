@@ -1,7 +1,7 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class GuessTheMovie {
+public class GuessTheNumber {
     private static int getRandNumber() {
         Random rand = new Random();
         return rand.nextInt(100) + 1;
