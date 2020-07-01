@@ -12,8 +12,8 @@ public class GuessTheNumber {
         System.out.println("Try to guess it.");
         System.out.println("You have 10 guess(es) left:");
 
-        int guessesLeft = 10;
         Scanner scanner = new Scanner(System.in);
+        int guessesLeft = 10;
         int randNumber = getRandNumber();
         int guess = Integer.parseInt(scanner.nextLine());
 
@@ -24,6 +24,7 @@ public class GuessTheNumber {
                 System.out.printf("It's bigger than %d\n", guess);
             } else {
                 System.out.println("CORRECT ... YOU WIN!");
+                scanner.close();
                 return;
             }
 
@@ -31,5 +32,8 @@ public class GuessTheNumber {
             System.out.printf("You have %d guess(es) left:\n", guessesLeft);
             guess = Integer.parseInt(scanner.nextLine());
         }
+
+        scanner.close();
+        return;
     }
 }
