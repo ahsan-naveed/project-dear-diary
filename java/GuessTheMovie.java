@@ -21,27 +21,29 @@ public class GuessTheMovie {
         } catch (Exception e) {
             System.out.println(e);
         }
+        
         return movies;
     }
 
     private static String getRandomMovie(ArrayList<String> movies) {
         Random rand = new Random();
         int randIdx = rand.nextInt(movies.size());
+
         return movies.get(randIdx);
     }
 
     private static String updateAtIndex(String str, char ch, int index) {
         char[] chars = str.toCharArray();
         chars[index] = ch;
+        
         return String.valueOf(chars);
     }
 
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
         ArrayList<String> movies = initMovies();
         String randomMovie = getRandomMovie(movies);
-        System.out.println(randomMovie);
         String guess = "_".repeat(randomMovie.length());
-        Scanner scanner = new Scanner(System.in);
         int pointsLeft = 10;
         int wrongGuesses = 0;
         
