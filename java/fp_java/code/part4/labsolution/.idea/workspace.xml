@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4ebb4673-b135-405d-8040-655aaa2e2577" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1c8Sr4jcJIyFodYhwpEzwSjGPOz" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RunManager" selected="JUnit.UtilTest">
+    <configuration name="PencilTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="lab" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.agiledeveloper.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.agiledeveloper" />
+      <option name="MAIN_CLASS_NAME" value="com.agiledeveloper.PencilTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PencilTest.canary" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="lab" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.agiledeveloper.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.agiledeveloper" />
+      <option name="MAIN_CLASS_NAME" value="com.agiledeveloper.PencilTest" />
+      <option name="METHOD_NAME" value="canary" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BSP.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UtilTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="lab" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.agiledeveloper.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.agiledeveloper" />
+      <option name="MAIN_CLASS_NAME" value="com.agiledeveloper.UtilTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UtilTest.numberOfLetters" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="lab" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.agiledeveloper.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.agiledeveloper" />
+      <option name="MAIN_CLASS_NAME" value="com.agiledeveloper.UtilTest" />
+      <option name="METHOD_NAME" value="numberOfLetters" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.UtilTest" />
+        <item itemvalue="JUnit.UtilTest.numberOfLetters" />
+        <item itemvalue="JUnit.PencilTest" />
+        <item itemvalue="JUnit.PencilTest.canary" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4ebb4673-b135-405d-8040-655aaa2e2577" name="Default Changelist" comment="" />
+      <created>1589908922642</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1589908922642</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="100" y="123" width="1720" height="977" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1592858316757">
+      <screen x="0" y="23" width="1920" height="1177" />
+    </state>
+    <state x="100" y="123" width="1720" height="977" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.23.1920.1177@0.23.1920.1177" timestamp="1592858316757" />
+    <state width="1878" height="204" key="GridCell.Tab.0.bottom" timestamp="1593717776627">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state width="1878" height="204" key="GridCell.Tab.0.bottom/0.0.1920.1200@0.0.1920.1200" timestamp="1593717776627" />
+    <state width="1878" height="330" key="GridCell.Tab.0.bottom/0.23.1920.1177@0.23.1920.1177" timestamp="1592858614682" />
+    <state width="1878" height="204" key="GridCell.Tab.0.center" timestamp="1593717776627">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state width="1878" height="204" key="GridCell.Tab.0.center/0.0.1920.1200@0.0.1920.1200" timestamp="1593717776627" />
+    <state width="1878" height="330" key="GridCell.Tab.0.center/0.23.1920.1177@0.23.1920.1177" timestamp="1592858614681" />
+    <state width="1878" height="204" key="GridCell.Tab.0.left" timestamp="1593717776626">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state width="1878" height="204" key="GridCell.Tab.0.left/0.0.1920.1200@0.0.1920.1200" timestamp="1593717776626" />
+    <state width="1878" height="330" key="GridCell.Tab.0.left/0.23.1920.1177@0.23.1920.1177" timestamp="1592858614681" />
+    <state width="1878" height="204" key="GridCell.Tab.0.right" timestamp="1593717776627">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state width="1878" height="204" key="GridCell.Tab.0.right/0.0.1920.1200@0.0.1920.1200" timestamp="1593717776627" />
+    <state width="1878" height="330" key="GridCell.Tab.0.right/0.23.1920.1177@0.23.1920.1177" timestamp="1592858614681" />
+    <state x="469" y="250" key="SettingsEditor" timestamp="1592851540218">
+      <screen x="0" y="23" width="1920" height="1177" />
+    </state>
+    <state x="469" y="250" key="SettingsEditor/0.23.1920.1177@0.23.1920.1177" timestamp="1592851540218" />
+    <state width="500" height="454" key="SwitcherDM" timestamp="1593717771815">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state width="500" height="454" key="SwitcherDM/0.0.1920.1200@0.0.1920.1200" timestamp="1593717771815" />
+    <state width="500" height="445" key="SwitcherDM/0.23.1920.1177@0.23.1920.1177" timestamp="1592858449620" />
+  </component>
+</project>
