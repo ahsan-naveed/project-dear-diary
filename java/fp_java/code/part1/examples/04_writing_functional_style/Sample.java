@@ -10,7 +10,7 @@ public class Sample {
     boolean found = false;
     ....the whole mess...
     
-    imperative style code is more verbose, complex, error prone, uses mutability
+    imperative style code is more verbose, complex, error prone, uses mutability (makes it harder to parallelize)
     
     We familiar with it
     */
