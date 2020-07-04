@@ -23,11 +23,14 @@ public class GuessTheMovie {
     }
 
     public static void main(String[] args) throws IOException {
+        List<String> movies = initMovies("movies.txt");
+        
         Scanner scanner = new Scanner(System.in);
-        List<String> movies = initMovies();
+        
         String randomMovie = getRandomMovie(movies);
         String answer = randomMovie;
         String guess = "_".repeat(randomMovie.length());
+        
         int pointsLeft = 10;
         int wrongGuesses = 0;
         
@@ -57,7 +60,7 @@ public class GuessTheMovie {
 
         if (didWin) {
             System.out.println("You Win!");
-            System.out.printf("You have guessed '%s' correctly.\n", guess);
+            System.out.printf("You have guessed '%s' correctly.\n", answer);
         } else {
             System.out.println("You Lost...");
             System.out.printf("You were guessing %s.\n", answer);
