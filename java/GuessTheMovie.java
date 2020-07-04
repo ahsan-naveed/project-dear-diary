@@ -1,33 +1,16 @@
-import java.util.Scanner;
-import java.util.ArrayList;
-import java.util.Random;
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.util.*;
+import java.io.*;
+import java.nio.file.*;
+import static java.util.stream.Collectors.*;
 
 public class GuessTheMovie {
-    private static ArrayList<String> initMovies() {
-        ArrayList<String> movies = new ArrayList<>();
-        try {
-            File file = new File("movies.txt");
-            Scanner fileScanner = new Scanner(file);
-
-            while (fileScanner.hasNext()) {
-                movies.add(fileScanner.nextLine());
-            }
-
-            fileScanner.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("Cannot find that file");
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        
-        return movies;
+    private static List<String> initMovies(String filePath) throws IOException {
+        return Files.lines(Paths.get(filePath)).collect(toList());
     }
 
-    private static String getRandomMovie(ArrayList<String> movies) {
-        Random rand = new Random();
-        int randIdx = rand.nextInt(movies.size());
+    private static String getRandomMovie(List<String> movies) {
+        Random seed = new Random();
+        int randIdx = seed.nextInt(movies.size());
 
         return movies.get(randIdx);
     }
@@ -39,10 +22,11 @@ public class GuessTheMovie {
         return String.valueOf(chars);
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
-        ArrayList<String> movies = initMovies();
+        List<String> movies = initMovies();
         String randomMovie = getRandomMovie(movies);
+        String answer = randomMovie;
         String guess = "_".repeat(randomMovie.length());
         int pointsLeft = 10;
         int wrongGuesses = 0;
@@ -74,6 +58,9 @@ public class GuessTheMovie {
         if (didWin) {
             System.out.println("You Win!");
             System.out.printf("You have guessed '%s' correctly.\n", guess);
+        } else {
+            System.out.println("You Lost...");
+            System.out.printf("You were guessing %s.\n", answer);
         }
 
         scanner.close();
