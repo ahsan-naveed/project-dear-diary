@@ -13,7 +13,7 @@ fn main() {
 
         let mut guess = String::new();
 
-        // io::Result is an enum with 2 types, namely:
+        // io::Result is an enum with 2 types/arms, namely:
         // 1. oK
         // 2. Err
         io::stdin()
@@ -28,7 +28,7 @@ fn main() {
 
         println!("You guessed: {}", guess);
 
-        // Ordering is an enum with 3 types, namely:
+        // Ordering is an enum with 3 types/arms, namely:
         // 1. Less
         // 2. Greater
         // 3. Equal
