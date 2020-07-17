@@ -1,0 +1,4 @@
+-> cat /proc/version => linux-version
+-> uname -r => linux-version
+-> lsblk => block devices
+-> lsb_release -d => descriptive linux-version
