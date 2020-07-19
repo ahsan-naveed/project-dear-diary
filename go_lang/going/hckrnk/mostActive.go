@@ -16,18 +16,14 @@ func mostActive(customers []string) []string {
 		}
 	}
 
-	tradesPercent := make(map[string]float64)
+	var activeCustomers []string
 	for customer, count := range tradesCount {
 		percent := (float64(count) / float64(n)) * 100
 		if percent >= 5.0 {
-			tradesPercent[customer] = percent
+			activeCustomers = append(activeCustomers, customer)
 		}
 	}
 
-	var activeCustomers []string
-	for c, _ := range tradesPercent {
-		activeCustomers = append(activeCustomers, c)
-	}
 	sort.Strings(activeCustomers)
 	return activeCustomers
 }
