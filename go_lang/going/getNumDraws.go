@@ -1,3 +1,7 @@
+// improvements I can make:
+// 1. go Concurrency to bulk fetch
+// 2. goRoundTripper for testing
+
 package main
 
 import (
