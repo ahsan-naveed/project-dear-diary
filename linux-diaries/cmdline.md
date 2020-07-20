@@ -1,9 +1,9 @@
-`cat /proc/versio`n => kernel-version
-`cat /proc/cmdline` => command line args passed to the kernel during the boot process
-`uname -r` => kernel-release
-`lsblk` => block devices
-`lsb_release -d` => descriptive kernel-version
-`cat /etc/system-release` => kernel-version
+- `cat /proc/versio`n => kernel-version
+- `cat /proc/cmdline` => command line args passed to the kernel during the boot process
+- `uname -r` => kernel-release
+- `lsblk` => block devices
+- `lsb_release -d` => descriptive kernel-version
+- `cat /etc/system-release` => kernel-version
 
 ---
 
