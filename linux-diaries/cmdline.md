@@ -8,8 +8,8 @@
 ---
 
 ### Messaging users
-`write <user-name>`
-write wall => sends message to all users you can pre-config a message like so 
-1. first check if messaging is allowed with `mesg` => should output `is y`
-2. second write message as `cat > message << END`
-3. send the message to all active users with `wall message`
+- `write <user-name>`
+- write wall => sends message to all users you can pre-config a message like so 
+  1. first check if messaging is allowed with `mesg` => should output `is y`
+  2. second write message as `cat > message << END`
+  3. send the message to all active users with `wall message`
