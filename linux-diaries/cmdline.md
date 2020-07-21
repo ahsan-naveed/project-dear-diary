@@ -16,16 +16,16 @@
 
 ### Starting and Stopping Centos
 #### Shutdown commands
-- poweroff
-- reboot
-- halt
-- init 
-- telinit
-- shutdown -h --halt, -r --reboot, -c --cancel ex: `shutdown -h 10 "The system is about to be shutdown in 10 mins"`
+- `poweroff`
+- `reboot`
+- `halt`
+- `init`
+- `telinit`
+- `shutdown -h --halt, -r --reboot, -c --cancel` ex: `shutdown -h 10 "The system is about to be shutdown in 10 mins"`
 - shutdown generates `/run/nologin` file; which prohibits any non-root user to login when there is only 5 minutes left to shutdown
 - `!$`: stands for last argument
 - `!rm`: runs the last command that began with 'rm'
 - `touch one/file{1..5}`
 - `mkdir -m 777 d1` -> sets all permissions for user group and others -> verify via `ls -ld d1`
 
-## Changing Runlevels & Setting Default
+### Changing Runlevels & Setting Default
