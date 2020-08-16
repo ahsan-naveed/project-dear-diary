@@ -10,7 +10,7 @@ export default () => {
       title,
     });
 
-    setTitle("");
+    setTitle(""); // reset title
   };
   return (
     <div>
