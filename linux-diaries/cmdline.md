@@ -28,4 +28,14 @@
 - `touch one/file{1..5}`
 - `mkdir -m 777 d1` -> sets all permissions for user group and others -> verify via `ls -ld d1`
 
+---
+
+### Listing files
+- `ls -l`
+- `ls -i` for i node entry
+- `ls -lh` for human readable output
+- `ls -a` list hidden files
+- `ls -ltr` most recently modified file at the bottom
+-  `ls -F` for finding file types
+
 ### Changing Runlevels & Setting Default
