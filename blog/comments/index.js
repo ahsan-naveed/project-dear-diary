@@ -13,25 +13,50 @@ app.use(cors());
 app.post("/posts/:id/comments", async (req, res) => {
   const commentId = randomBytes(4).toString("hex");
   const { content } = req.body;
-  const comments = commentsByPostId[req.params.id] || [];
+  const postId = req.params.id;
+  const comments = commentsByPostId[postId] || [];
+  const comment = { commentId, content, status: "pending" };
 
-  comments.push({ commentId, content });
-  commentsByPostId[req.params.id] = comments;
+  comments.push(comment);
+  commentsByPostId[postId] = comments;
 
+  // stream event to event bus
   await Axios.post("http://localhost:4005/events", {
     type: "CommentCreated",
     data: {
-      postId: req.params.id,
-      id: commentId,
-      content,
+      postId,
+      ...comment,
     },
   });
 
   res.status(201).send(comments);
 });
 
-app.post("/events", (req, res) => {
+app.post("/events", async (req, res) => {
   console.log("Received Event: ", req.body.type);
+
+  const { type, data } = req.body;
+
+  if (type === "CommentModerated") {
+    const { postId, status, commentId, content } = data;
+    const comments = commentsByPostId[postId];
+    const comment = comments.find((c) => {
+      return c.commentId === commentId;
+    });
+
+    comment.status = status;
+
+    // stream event to event bus
+    await Axios.post("http://localhost:4005/events", {
+      type: "CommentUpdated",
+      data: {
+        postId,
+        commentId,
+        content,
+        status,
+      },
+    });
+  }
 
   res.send({});
 });
