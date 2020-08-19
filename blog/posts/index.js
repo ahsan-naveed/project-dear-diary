@@ -10,7 +10,7 @@ const posts = {};
 app.use(bodyParser.json());
 app.use(cors());
 
-app.get("/posts", (req, res) => {
+app.get("/posts", (_, res) => {
   res.send(posts);
 });
 
