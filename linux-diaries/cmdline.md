@@ -1,4 +1,4 @@
-- `cat /proc/versio`n => kernel-version
+- `cat /proc/version` => kernel-version
 - `cat /proc/cmdline` => command line args passed to the kernel during the boot process
 - `uname -r` => kernel-release
 - `lsblk` => block devices
@@ -37,5 +37,17 @@
 - `ls -a` list hidden files
 - `ls -ltr` most recently modified file at the bottom
 -  `ls -F` for finding file types
+
+---
+
+### Everything in Linux is represented as a file
+Different types of files are:
+- Regular Files
+- Directories
+- Symbolic Links
+- Block Devices
+- Character Devices (tty)
+- Named pipes
+- Sockets
 
 ### Changing Runlevels & Setting Default
