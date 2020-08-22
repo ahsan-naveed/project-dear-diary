@@ -18,4 +18,4 @@ if __name__ == "__main__":
     print(f'Number of set bits from 1 to 3: {str(main(3))}')
     print(f'Number of set bits from 1 to 6: {str(main(6))}')
     print(f'Number of set bits from 1 to 7: {str(main(7))}')
-    print(f'Number of set bits from 1 to 1000000: {str(main(1000000))}')
+    print(f'Number of set bits from 1 to 100000000: {str(main(100000000))}')
