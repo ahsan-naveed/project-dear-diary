@@ -3,7 +3,7 @@ def getSetBits(n):
     while n:
         if  n % 2:
             setBits += 1
-        n = n // 2
+        n //= 2
     return setBits
 
 
