@@ -27,7 +27,11 @@ func (*server) Calculator(ctx context.Context, req *calculatorpb.CalculatorReque
 	case "*":
 		result = x * y
 	default:
-		result = x / y
+		if y != 0 {
+			result = x / y
+		} else {
+			result = 0
+		}
 	}
 	res := &calculatorpb.CalculatorResponse{
 		Result: result,
