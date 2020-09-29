@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.io.IOException;
 
-public class NameScroes {
+public class NameScores {
     
     public static void main(String[] args) throws IOException {
         String[] lines = Files.readAllLines(Paths.get("names.txt")).get(0).split(",");
