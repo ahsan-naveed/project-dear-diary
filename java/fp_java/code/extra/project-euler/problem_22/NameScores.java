@@ -11,10 +11,7 @@ public class NameScores {
         String[] lines = Files.readAllLines(Paths.get("names.txt")).get(0).split(",");
         List<String> names = new ArrayList<String>();
         
-        for (String name : lines) {
-            names.add(name);
-        }
-
+        names.addAll(List.of(lines));
         Collections.sort(names);
 
         Integer totalScore = 0;
