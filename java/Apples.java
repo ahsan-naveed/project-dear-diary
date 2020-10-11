@@ -11,18 +11,18 @@ public class Apples {
 
     // program to an interface not an implementation
 
-    static public interface PrettyPrint {
-        String print(Apple apple);
+    static public interface AppleFormatter {
+        String accept(Apple apple);
     }
 
-    static public class PrintWeight implements PrettyPrint {
-        public String print(Apple apple) {
+    static public class PrintWeight implements AppleFormatter {
+        public String accept(Apple apple) {
             return "Weight: " + apple.getWeight().toString();
         }
     }
 
-    static public class PrintColorAndWeight implements PrettyPrint {
-        public String print(Apple apple) {
+    static public class PrintColorAndWeight implements AppleFormatter {
+        public String accept(Apple apple) {
             StringBuilder result = new StringBuilder();
             String color = Color.GREEN.equals(apple.getColor()) ? "Green" : "Red";
             
@@ -33,8 +33,8 @@ public class Apples {
     }
 
 
-    static public class PrintHeavyLightColorApple implements PrettyPrint {
-        public String print(Apple apple) {
+    static public class PrintHeavyLightColorApple implements AppleFormatter {
+        public String accept(Apple apple) {
             StringBuilder result = new StringBuilder();
             String color = Color.GREEN.equals(apple.getColor()) ? "green" : "red";
             String weightCategory = apple.getWeight() > 150 ? "Heavy" : "Light";
@@ -106,9 +106,9 @@ public class Apples {
             .collect(Collectors.toList());
     }
 
-    static public String prettyPrintApple(List<Apple> apples, PrettyPrint p) {
+    static public String prettyPrintApple(List<Apple> apples, AppleFormatter f) {
         StringBuilder result = new StringBuilder(); 
-        apples.forEach(a -> result.append(p.print(a) + "\n"));
+        apples.forEach(a -> result.append(f.accept(a) + "\n"));
         return result.toString();
     }
 
