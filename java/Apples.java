@@ -145,5 +145,14 @@ public class Apples {
         // getColor()) && apple.getWeight() > 150 to the filterApples method without 
         // having to define multiple ApplePredicate classes. This removes unnecessary 
         // verbosity.
+
+        // anonymous classes
+        List<Apple> redApples = filterApples(apples, new ApplePredicate() {
+            public boolean test(Apple apple) {
+                return Color.RED.equals(apple.getColor());
+            }
+        });
+
+        System.out.println(prettyPrintApple(redApples, new PrintHeavyLightColorApple()));
     }   
 }
