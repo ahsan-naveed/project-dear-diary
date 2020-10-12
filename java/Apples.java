@@ -9,6 +9,11 @@ public class Apples {
         RED
     }
 
+    // abstract on the List type to go beyond the problem domain
+    static public interface Predicate<T> {
+        boolean test(T t);
+    }
+
     // program to an interface not an implementation
 
     static public interface AppleFormatter {
@@ -112,6 +117,14 @@ public class Apples {
         return result.toString();
     }
 
+    // abstract on the List type to go beyond the problem domain
+    public static <T> List<T> filter(List<T> list, Predicate<T> p) {
+        return list
+            .stream()
+            .filter(item -> p.test(item))
+            .collect(Collectors.toList());
+    }
+
     public static void main(String[] args) {
         
         List<Apple> apples = new ArrayList<>();
@@ -146,7 +159,8 @@ public class Apples {
         // having to define multiple ApplePredicate classes. This removes unnecessary 
         // verbosity.
 
-        // anonymous classes
+        // anonymous classes => declare and intialize the class at the same time
+        // Parameterizes the behavior of the method filterApples with an anonymous class
         List<Apple> redApples = filterApples(apples, new ApplePredicate() {
             public boolean test(Apple apple) {
                 return Color.RED.equals(apple.getColor());
@@ -154,5 +168,24 @@ public class Apples {
         });
 
         System.out.println(prettyPrintApple(redApples, new PrintHeavyLightColorApple()));
+
+        // Even though anonymous classes somewhat tackle the verbosity associated
+        // with declaring multiple concrete classes for an interface, they’re still
+        // unsatisfactory.
+        List<Apple> redHeavyApples = filterApples(apples, (Apple apple) -> {
+            return Color.RED.equals(apple.getColor()) && apple.getWeight() > 150;
+        });
+
+        System.out.println(prettyPrintApple(
+            redHeavyApples,
+            new PrintHeavyLightColorApple())
+        );
+
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9);
+        List<Apple> lightApples = filter(apples, (Apple apple) -> apple.getWeight() < 150);
+        List<Integer> evenNumbers = filter(numbers, (Integer num) -> num % 2 == 0);
+
+        System.out.println(prettyPrintApple(lightApples, new PrintHeavyLightColorApple()));
+        System.out.println(evenNumbers);
     }   
 }
