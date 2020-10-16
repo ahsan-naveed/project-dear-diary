@@ -71,5 +71,31 @@ public class Dishes {
                 .collect(Collectors.toList());
 
         System.out.println(highCaloryDishes);
+
+        List<Dish> specialMenu = Arrays.asList(
+            new Dish("seasonal fruit", true, 120, Dish.Type.OTHER),
+            new Dish("prawns", false, 300, Dish.Type.FISH), 
+            new Dish("rice", true, 350, Dish.Type.OTHER),  
+            new Dish("chicken", false, 400, Dish.Type.MEAT),
+            new Dish("french fries", true, 530, Dish.Type.OTHER)
+        );
+
+        List<String> slicedMenu1 = 
+            specialMenu
+                .stream()
+                .takeWhile(d -> d.getCalories() < 320)
+                .map(Dish::getName)
+                .collect(Collectors.toList());
+
+        System.out.println(slicedMenu1);
+
+        List<String> slicedMenu2 = 
+            specialMenu
+                .stream()
+                .dropWhile(d -> d.getCalories() < 320)
+                .map(Dish::getName)
+                .collect(Collectors.toList());
+
+        System.out.println(slicedMenu2);
     }
 }
