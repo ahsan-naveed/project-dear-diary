@@ -152,5 +152,33 @@ public class Dishes {
         // allMatch, noneMatch, anyMatch, findFirst, & findAny
         // anyMatch: method returns a boolean and is therefore a terminal operation
         
+        // findAny
+        menu
+            .stream()
+            .filter(Dish::isVegetarian)
+            .findAny()
+            .ifPresent(System.out::println);
+        
+        // findFirst
+        menu
+            .stream()
+            .filter(Dish::isVegetarian)
+            .findFirst()
+            .ifPresent(System.out::println);
+
+        // print max(numbers)
+        System.out.println(
+            numbers
+                .stream()
+                .reduce(Integer.MIN_VALUE, Integer::max)
+        );
+
+        // print number of dishes
+        // map-reduce can be easily parallelized
+        System.out.println(
+            menu
+                .stream()
+                .count()
+        );
     }
 }
