@@ -63,6 +63,7 @@ public class Dishes {
 
         System.out.println(threeHighCaloryDishes);
 
+        // filtering
         List<String> highCaloryDishes =
             menu
                 .stream()
@@ -80,6 +81,7 @@ public class Dishes {
             new Dish("french fries", true, 530, Dish.Type.OTHER)
         );
 
+        // slicing
         List<String> slicedMenu1 = 
             specialMenu
                 .stream()
@@ -97,5 +99,15 @@ public class Dishes {
                 .collect(Collectors.toList());
 
         System.out.println(slicedMenu2);
+
+        List<String> firstTwoMeats = 
+            menu
+                .stream()
+                .filter(d -> Dish.Type.MEAT.equals(d.getType()))
+                .limit(2)
+                .map(Dish::getName)
+                .collect(Collectors.toList());
+        
+        System.out.println(firstTwoMeats);
     }
 }
