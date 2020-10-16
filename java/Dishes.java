@@ -1,5 +1,7 @@
+import java.lang.ModuleLayer.Controller;
 import java.util.*;
 import java.util.stream.Stream;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class Dishes {
@@ -91,6 +93,7 @@ public class Dishes {
 
         System.out.println(slicedMenu1);
 
+        // dropWhile & takeWhile
         List<String> slicedMenu2 = 
             specialMenu
                 .stream()
@@ -100,6 +103,7 @@ public class Dishes {
 
         System.out.println(slicedMenu2);
 
+        // skip & limit -> truncating
         List<String> firstTwoMeats = 
             menu
                 .stream()
@@ -109,5 +113,44 @@ public class Dishes {
                 .collect(Collectors.toList());
         
         System.out.println(firstTwoMeats);
+
+        List<String> words = Arrays.asList("Hello", "World");
+        List<String> uniqueChars = 
+            words
+                .stream()
+                .map(word -> word.split(""))
+                .flatMap(Arrays::stream) // Flattens each generated stream into a single stream
+                .distinct()
+                .collect(Collectors.toList());
+        
+        System.out.println(uniqueChars);
+
+        // map
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+        List<Integer> squares = 
+            numbers
+                .stream()
+                .map(x -> x*x)
+                .collect(Collectors.toList());
+
+        System.out.println(squares);
+
+        List<Integer> list1 = Arrays.asList(1, 2, 3);
+        List<Integer> list2 = Arrays.asList(3, 4);
+
+        // flatMap
+        list1
+            .stream()
+            .flatMap(x ->
+                list2
+                    .stream()
+                    .filter(y -> (x + y) % 3 == 0)
+                    .map(y -> Arrays.asList(x, y))
+            )
+            .forEach(System.out::println);
+        
+        // allMatch, noneMatch, anyMatch, findFirst, & findAny
+        // anyMatch: method returns a boolean and is therefore a terminal operation
+        
     }
 }
