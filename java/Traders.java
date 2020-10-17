@@ -83,9 +83,8 @@ public class Traders {
         List<String> cambridgeTraders = 
             transactions
                 .stream()
-                .map(Transaction::getTrader)
-                .filter(trader -> trader.getCity() == "Cambridge")
-                .map(Trader::getName)
+                .filter(t -> t.getTrader().getCity() == "Cambridge")
+                .map(t -> t.getTrader().getName())
                 .sorted()
                 .collect(Collectors.toList());
         
