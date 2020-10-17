@@ -1,6 +1,8 @@
 import java.util.*;
 import java.util.stream.Stream;
 import java.util.stream.Collectors;
+import java.util.Comparator;
+
 
 public class Traders {
     static public class Trader {
@@ -62,7 +64,7 @@ public class Traders {
             transactions
                 .stream()
                 .filter(t -> t.getYear() == 2011)
-                .sorted((t1, t2) -> t1.getValue() > t2.getValue() ? 1 : 0)
+                .sorted(Comparator.comparing(Transaction::getValue))
                 .collect(Collectors.toList());
 
         System.out.println(txnsIn2011);
@@ -72,20 +74,20 @@ public class Traders {
         List<String> uniqueCities = 
             transactions
                 .stream()
-                .map(Transaction::getTrader)
-                .map(Trader::getCity)
+                .map(t -> t.getTrader().getCity())
                 .distinct()
                 .collect(Collectors.toList());
         
         System.out.println(uniqueCities);
 
         // q3: Find all traders from Cambridge and sort them by name.
-        List<String> cambridgeTraders = 
+        List<Trader> cambridgeTraders = 
             transactions
                 .stream()
-                .filter(t -> t.getTrader().getCity() == "Cambridge")
-                .map(t -> t.getTrader().getName())
-                .sorted()
+                .map(Transaction::getTrader)
+                .filter(trader -> trader.getCity() == "Cambridge")
+                .distinct()
+                .sorted(Comparator.comparing(Trader::getName))
                 .collect(Collectors.toList());
         
         System.out.println(cambridgeTraders);
@@ -94,9 +96,7 @@ public class Traders {
         List<String> allTraderNames = 
             transactions
                 .stream()
-                .map(Transaction::getTrader)
-                .map(Trader::getName)
-                .sorted()
+                .map(t -> t.getTrader().getName())
                 .distinct()
                 .collect(Collectors.toList());
 
@@ -132,8 +132,7 @@ public class Traders {
         Optional<Transaction> smallestTxn = 
             transactions
                 .stream()
-                .sorted((t1, t2) -> t1.getValue() > t2.getValue() ? 1 : 0)
-                .findFirst();
+                .min(Comparator.comparing(Transaction::getValue));
 
         System.out.println(smallestTxn);
     }
