@@ -105,8 +105,7 @@ public class Traders {
         // q5: Are any traders based in Milan
         transactions
             .stream()
-            .map(Transaction::getTrader)
-            .filter(trader -> trader.getCity() == "Milan")
+            .filter(t -> t.getTrader().getCity() == "Milan")
             .findAny()
             .ifPresent(System.out::println);
         
