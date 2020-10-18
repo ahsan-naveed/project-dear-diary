@@ -135,5 +135,8 @@ public class Traders {
                 .min(Comparator.comparing(Transaction::getValue));
 
         System.out.println(smallestTxn);
+
+        // collectors
+        
     }
 }

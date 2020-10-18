@@ -1,8 +1,10 @@
-import java.lang.ModuleLayer.Controller;
 import java.util.*;
+import java.util.Comparator;
 import java.util.stream.Stream;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
+
+// imported all the static factory methods of the Collectors class
+import static java.util.stream.Collectors.*;
 
 public class Dishes {
     static public class Dish {
@@ -180,5 +182,39 @@ public class Dishes {
                 .stream()
                 .count()
         );
+
+        // collectors: reducing and summarizing
+        Optional<Dish> mostCalorieDish =
+            menu
+                .stream()
+                .collect(
+                    Collectors.maxBy(
+                        Comparator.comparingInt(Dish::getCalories)));
+        
+        System.out.println(mostCalorieDish);
+
+        // collectors: summarization
+        // summingInt, summingLong, summingDouble
+        int totalCalories = 
+            menu
+                .stream()
+                .collect(Collectors.summingInt(Dish::getCalories));
+        
+        System.out.println("Total calories: " + totalCalories);
+
+        double avgCalories = 
+            menu
+                .stream()
+                .collect(Collectors.averagingInt(Dish::getCalories));
+        
+        System.out.println("Avg calories: " + avgCalories);
+
+        IntSummaryStatistics menuStatistics =
+            menu
+                .stream()
+                .collect(summarizingInt(Dish::getCalories));
+        
+        System.out.println(menuStatistics);
+    
     }
 }
