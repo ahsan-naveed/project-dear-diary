@@ -1,0 +1,68 @@
+Understanding Functional Programming
+Venkat Subramaniam
+Email: venkats@agiledeveloper.com
+Twitter: @venkat_s
+http://www.agiledeveloper.com download link
+
+Getting started:
+✓the repo details are on the chat, you can quickly copy and paste it from there
+✓code will be pushed live during the class, please clone the repo
+  git clone http://www.agiledeveloper.com/repos/git/fp110320
+  userid: onlineclass
+  password: code4love
+  
+✓Poll 0
+
+Part 1: Thinking in a functional style:
+✓imperative
+✓declarative
+✓higher-order functions
+✓functional == declarative + higher-order functional
+✓thinking declaratively, as a series of transformations
+✓Just like the contains function, look for (higher-order) functions that abstract operations
+✓let's refactor some code
+ ✓Please look at the readme.txt file under code/part1/lab
+✓review and discussions
+✓Poll 1
+
+Part 2:Exploring functional APIs:
+✓functional composition
+✓filter
+✓map
+✓functional style == functional composition
+✓functional programming == functional composition + lazy evaluation
+✓reduce
+✓collect
+✓Collector's helpers in Collectors
+✓let's refactor some code
+✓review and discussions
+✓Poll 2
+
+Part 3:Complex higher-order functions:
+✓Digging into Collectors further
+✓recursive nature
+✓let's refactor some code
+✓review and discussions
+✓Poll 3
+
+Part 4:map versus flatMap:
+✓map
+✓one to one functions
+✓one to many functions
+✓flatten in other languages
+✓map and flatten
+✓let's refactor some code
+✓review and discussions
+✓Poll 4
+
+
+
+
+
+
+
+
+
+
+
+
