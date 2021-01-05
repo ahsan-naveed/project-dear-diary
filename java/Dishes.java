@@ -7,6 +7,12 @@ import java.util.stream.Collectors;
 import static java.util.stream.Collectors.*;
 
 public class Dishes {
+    static public enum CaloricLevel {
+        DIET,
+        NORMAL,
+        FAT
+    }
+
     static public class Dish {
        private final String name;
        private final boolean vegetarian;
@@ -93,6 +99,7 @@ public class Dishes {
                 .map(Dish::getName)
                 .collect(Collectors.toList());
 
+        System.out.println("`takeWhile` calories < 320");
         System.out.println(slicedMenu1);
 
         // dropWhile & takeWhile
@@ -103,6 +110,7 @@ public class Dishes {
                 .map(Dish::getName)
                 .collect(Collectors.toList());
 
+        System.out.println("`dropWhile` calories < 320");
         System.out.println(slicedMenu2);
 
         // skip & limit -> truncating
@@ -120,8 +128,7 @@ public class Dishes {
         List<String> uniqueChars = 
             words
                 .stream()
-                .map(word -> word.split(""))
-                .flatMap(Arrays::stream) // Flattens each generated stream into a single stream
+                .flatMap(word -> Arrays.stream(word.split(""))) // Flattens each generated stream into a single stream
                 .distinct()
                 .collect(Collectors.toList());
         
@@ -215,6 +222,56 @@ public class Dishes {
                 .collect(summarizingInt(Dish::getCalories));
         
         System.out.println(menuStatistics);
-    
+
+        // Joining Strings
+        String shortMenu =
+            menu
+                .stream()
+                .map(Dish::getName)
+                .collect(joining(", "));
+        // same result if Dish class had toString()
+        // menu.stream().collect(joining(", "))
+        System.out.println("short menu: " + shortMenu);
+
+        int totalCaloriesV2 =
+            menu
+                .stream()
+                .collect(reducing(
+                    0, Dish::getCalories, Integer::sum
+                ));
+        System.out.println("total calories v2: " + totalCaloriesV2);
+
+        Optional<Dish> mostCalorieDishV2 =
+            menu
+                .stream()
+                .collect(reducing(
+                    (d1, d2) -> d1.getCalories() > d2.getCalories() ? d1 : d2
+                ));
+        System.out.println("Most calories dish v2 : " + mostCalorieDishV2);
+
+        Map<Dish.Type, List<Dish>> dishByType =
+            menu
+                .stream()
+                .collect(groupingBy(Dish::getType));
+        System.out.println(dishByType);
+
+        Map<CaloricLevel, List<Dish>> dishesByCaloricLvl =
+            menu
+                .stream()
+                .collect(groupingBy(dish -> {
+                    if (dish.getCalories() <= 400) return CaloricLevel.DIET;
+                    else if (dish.getCalories() <= 700) return CaloricLevel.NORMAL;
+                    else return CaloricLevel.FAT;
+                }));
+        System.out.println(dishesByCaloricLvl);
+
+        Map<Dish.Type, List<Dish>> caloricDishesByType =
+            menu
+                .stream()
+                .collect(groupingBy(
+                    Dish::getType,
+                    filtering(dish -> dish.getCalories() > 500, toList())
+                ));
+        System.out.println(caloricDishesByType);
     }
 }
