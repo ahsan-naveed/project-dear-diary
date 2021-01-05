@@ -36,7 +36,8 @@ public class BuildingStreams {
                         .rangeClosed(a, 100)
                         .mapToObj(b ->
                             new double[] { a, b, Math.sqrt(a * a + b * b) }
-                        ).filter(t -> t[2] % 1 == 0)
+                        )
+                        .filter(t -> t[2] % 1 == 0)
                 );
 
         pythagoreanTriplesV2
