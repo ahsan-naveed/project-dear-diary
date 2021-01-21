@@ -1,7 +1,9 @@
 import java.util.*;
 import java.util.Comparator;
 import java.util.stream.Stream;
+
 import java.util.stream.Collectors;
+import java.util.Map.*;
 
 // imported all the static factory methods of the Collectors class
 import static java.util.stream.Collectors.*;
@@ -273,5 +275,21 @@ public class Dishes {
                     filtering(dish -> dish.getCalories() > 500, toList())
                 ));
         System.out.println(caloricDishesByType);
+
+        Map<String, String> favouriteMovies
+            = Map.ofEntries(
+                Map.entry("Raphael", "Star Wars"),
+                Map.entry("Cristina", "Matrix"),
+                Map.entry("Olivia", "James Bond")
+        );
+
+        favouriteMovies
+                .entrySet()
+                .stream()
+                .forEach(e -> {
+                    String k = e.getKey();
+                    String v = e.getValue();
+                    System.out.println(k + ": " + v);
+                });
     }
 }
