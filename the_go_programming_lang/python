@@ -1,0 +1,14 @@
+def mergeStrs(a, b):
+  res = ''
+  i = 0
+  while i < len(a) and i < len(b):
+    res += a[i] + b[i]
+    i += 1
+  if len(a) < len(b):
+    return res + b[i:]
+
+  elif len(a) > len(b):
+    return res + a[i:]
+
+print(mergeStrs("abcd", "efghi"))
+print("EXPECTED:" + "aebfcgdhi")
